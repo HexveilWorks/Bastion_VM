@@ -26,5 +26,5 @@ jobs:
 
       - name: terraform init
         run: terraform init 
-        working-directory: /env/dev
+        working-directory: env/dev/
     
