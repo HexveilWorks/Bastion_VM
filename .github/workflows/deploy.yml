@@ -1,0 +1,37 @@
+name: VM_Build
+
+on: workflow_dispatch
+
+jobs:
+  build:
+   runs-on: self-hosted
+   permissions: 
+   
+    contents: read
+    id-token: write
+
+   steps:
+    - name: checkout
+      uses: actions/checkout@v6.0.2
+
+    - name:  Azure Login
+      uses: Azure/login@v3
+      with:
+        creds:
+        client-id: "64a822f4-f5db-4c48-8207-85c33c40b84e"
+        tenant-id: "c8924b27-c122-4f75-9a71-017cf389fea9"
+         subscription-id: "770fa3bb-3c61-4fca-b236-53ca59861b4a"
+
+
+    - name: terraform init
+      run: terraform init 
+      working_directory: /env/dev
+      
+
+
+
+
+
+
+
+      
